@@ -1,56 +1,109 @@
+/* Basic reset and font settings */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
+/* Header styling */
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
-    margin-bottom: 20px;
 }
 
+/* Container styling for layout */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
 }
 
-.card {
+/* Section styling for sections */
+section {
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     padding: 20px;
-    width: calc(50% - 20px); /* Two cards per row, with a gap */
-    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h2 {
+    color: #333;
     margin-bottom: 20px;
 }
 
+/* Card styling */
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Card heading styling */
 .card h3 {
     margin-top: 0;
 }
 
-.card button {
-    background-color: #333;
+/* Button styling */
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.card button:hover {
-    background-color: #47c82a;
+/* Button hover state */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
+/* Completed button styling */
+button.completed {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Responsive design adjustments */
 @media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
     .card {
-        width: 100%; /* For smaller screens, use full width */
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 12px;
     }
 }

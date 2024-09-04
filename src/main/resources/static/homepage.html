@@ -278,16 +278,51 @@
             <div class="modal-header">Make Reservation</div>
             <div class="modal-body">
                 <form id="reserveForm">
+                    <!-- Basic Details -->
                     <input type="text" id="reserveName" name="customerName" placeholder="Name" required>
                     <input type="email" id="reserveEmail" name="email" placeholder="Email" required>
-                    <input type="date" id="reserveDate" name="reservationDate" required>
-                    <input type="time" id="reserveTime" name="reservationTime" required>
-                    <input type="number" id="reserveGuests" name="numberOfPeople" placeholder="Number of Guests" required>
+    
+                    <!-- Reservation Type Selection -->
+                    <select id="reservationType" name="reservationType" required>
+                        <option value="">Select Reservation Type</option>
+                        <option value="dineIn">Dine-In</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="bookRoom">Book Room</option>
+                    </select>
+    
+                    <!-- Dine-In Section -->
+                    <div id="dineInSection" class="reservation-section" style="display: none;">
+                        <input type="date" id="reserveDate" name="reservationDate">
+                        <input type="time" id="reserveTime" name="reservationTime">
+                        <input type="number" id="reserveGuests" name="numberOfPeople" placeholder="Number of Guests">
+                    </div>
+    
+                    <!-- Room Booking Section -->
+                    <div id="roomBookingSection" class="reservation-section" style="display: none;">
+                        <select id="roomType" name="roomType">
+                            <option value="standard">Standard - $100/night</option>
+                            <option value="deluxe">Deluxe - $150/night</option>
+                            <option value="suite">Suite - $250/night</option>
+                        </select>
+                        <input type="date" id="reserveRoomDate" name="reservationDate">
+                        <input type="time" id="reserveRoomTime" name="reservationTime">
+                        <input type="number" id="reserveRoomGuests" name="numberOfPeople" placeholder="Number of Guests">
+                        <input type="number" id="roomNights" name="numberOfNights" placeholder="Number of Nights">
+                        <p id="totalPrice">Total Price: $0</p>
+                    </div>
+    
+                    <!-- Delivery Section -->
+                    <div id="deliverySection" class="reservation-section" style="display: none;">
+                        <select id="menuItems" name="selectedMenuItems" multiple></select>
+                        <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="Delivery Address">
+                    </div>
+    
                     <button type="submit">Reserve</button>
                 </form>
             </div>
         </div>
     </div>
+    
 
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>

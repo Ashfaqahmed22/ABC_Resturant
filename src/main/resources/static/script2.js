@@ -26,23 +26,56 @@ window.onclick = function(event) {
     }
 }
 
+// JavaScript to handle form behavior based on reservation type
+document.getElementById('reservationType').addEventListener('change', function() {
+    let type = this.value;
+    document.querySelectorAll('.reservation-section').forEach(section => section.style.display = 'none');
+    if (type === 'dineIn') {
+        document.getElementById('dineInSection').style.display = 'block';
+    } else if (type === 'bookRoom') {
+        document.getElementById('roomBookingSection').style.display = 'block';
+    } else if (type === 'delivery') {
+        document.getElementById('deliverySection').style.display = 'block';
+    }
+});
+
+// JavaScript to calculate the total price for room booking
+document.getElementById('roomNights').addEventListener('input', function() {
+    let nights = this.value;
+    let roomType = document.getElementById('roomType').value;
+    let price = roomType === 'suite' ? 250 : roomType === 'deluxe' ? 150 : 100;
+    document.getElementById('totalPrice').textContent = 'Total Price: $' + (nights * price);
+});
+
 // Handle reservation form submission
 document.getElementById("reserveForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
 
     var name = document.getElementById("reserveName").value;
     var email = document.getElementById("reserveEmail").value;
-    var date = document.getElementById("reserveDate").value;
-    var time = document.getElementById("reserveTime").value;
-    var guests = document.getElementById("reserveGuests").value;
-
+    var reservationType = document.getElementById("reservationType").value;
     var reservation = {
         customerName: name,
         email: email,
-        reservationDate: date,
-        reservationTime: time,
-        numberOfPeople: parseInt(guests, 10) // Ensure it's an integer
+        reservationType: reservationType
     };
+
+    if (reservationType === 'dineIn') {
+        reservation.reservationDate = document.getElementById("reserveDate").value;
+        reservation.reservationTime = document.getElementById("reserveTime").value;
+        reservation.numberOfPeople = parseInt(document.getElementById("reserveGuests").value, 10);
+    } else if (reservationType === 'bookRoom') {
+        reservation.roomType = document.getElementById("roomType").value;
+        reservation.reservationDate = document.getElementById("reserveRoomDate").value;
+        reservation.reservationTime = document.getElementById("reserveRoomTime").value;
+        reservation.numberOfPeople = parseInt(document.getElementById("reserveRoomGuests").value, 10);
+        reservation.numberOfNights = parseInt(document.getElementById("roomNights").value, 10);
+        reservation.totalPrice = document.getElementById("totalPrice").textContent.split('$')[1];
+    } else if (reservationType === 'delivery') {
+        let selectedItems = Array.from(document.getElementById("menuItems").selectedOptions).map(option => option.value);
+        reservation.selectedMenuItems = selectedItems;
+        reservation.deliveryAddress = document.getElementById("deliveryAddress").value;
+    }
 
     fetch("/api/reserve", {
         method: "POST",
@@ -55,11 +88,13 @@ document.getElementById("reserveForm").addEventListener("submit", function(event
     .then(data => {
         alert(data);
         if (data === "Reservation made successfully!") {
-            document.getElementById("reserveModal").style.display = "none";
+            reserveModal.style.display = "none";
         }
     })
     .catch(error => console.error("Error:", error));
 });
+
+// Script to handle header visibility on scroll
 let lastScrollTop = 0;
 const header = document.querySelector('header');
 
@@ -76,9 +111,11 @@ window.addEventListener('scroll', function() {
 
     lastScrollTop = scrollTop;
 });
+
+// Script for handling logout button
 document.getElementById('logoutBtn').addEventListener('click', function() {
     // Clear any session data or perform logout actions here
-    // For example:
+    // Example:
     // sessionStorage.clear();
     // localStorage.clear();
     // Redirect to index.html
