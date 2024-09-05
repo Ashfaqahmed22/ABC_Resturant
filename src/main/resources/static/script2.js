@@ -121,3 +121,49 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     // Redirect to index.html
     window.location.href = 'index.html';
 });
+// script2.js
+
+// Show Feedback Modal
+document.getElementById('feedbackBtn').addEventListener('click', function() {
+    document.getElementById('feedbackModal').style.display = 'block';
+});
+
+// Close Feedback Modal
+document.getElementById('feedbackClose').addEventListener('click', function() {
+    document.getElementById('feedbackModal').style.display = 'none';
+});
+
+// Handle Feedback Form Submission
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Collect feedback data
+    const name = document.getElementById('feedbackName').value;
+    const email = document.getElementById('feedbackEmail').value;
+    const message = document.getElementById('feedbackMessage').value;
+    
+    // Prepare feedback object
+    const feedback = {
+        name: name,
+        email: email,
+        message: message
+    };
+    
+    // Send feedback data to the server
+    fetch("/api/feedback", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(feedback)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display a success message
+        if (data === "Feedback submitted successfully!") {
+            // Clear and close the form
+            document.getElementById('feedbackForm').reset();
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});

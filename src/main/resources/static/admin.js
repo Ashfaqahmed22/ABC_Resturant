@@ -69,3 +69,28 @@ function deleteReservation(reservationId) {
         .catch(error => console.error('Error deleting reservation:', error));
     }
 }
+// admin.js
+
+// Function to show feedback
+function showFeedback() {
+    fetch('/api/feedback') // Adjust the URL based on your server setup
+        .then(response => response.json())
+        .then(data => {
+            const feedbackList = document.getElementById('feedbackList');
+            feedbackList.innerHTML = '';
+
+            data.forEach(feedback => {
+                const feedbackItem = document.createElement('div');
+                feedbackItem.className = 'feedback-item';
+                feedbackItem.innerHTML = `
+                    <p><strong>Name:</strong> ${feedback.name}</p>
+                    <p><strong>Email:</strong> ${feedback.email}</p>
+                    <p><strong>Message:</strong> ${feedback.message}</p>
+                    <hr>
+                `;
+                feedbackList.appendChild(feedbackItem);
+            });
+        })
+        .catch(error => console.error('Error fetching feedback:', error));
+}
+

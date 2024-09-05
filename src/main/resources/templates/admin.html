@@ -108,6 +108,14 @@
         .delete-btn:hover {
             background-color: #c82333;
         }
+
+        .feedback-item {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
     </style>
 </head>
 
@@ -153,6 +161,15 @@
                     <!-- Reservation data will be appended here -->
                 </tbody>
             </table>
+        </section>
+
+        <!-- New Feedback Section -->
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <button onclick="showFeedback()">Show Feedback</button>
+            <div id="feedbackList">
+                <!-- Feedback items will be appended here -->
+            </div>
         </section>
     </main>
 

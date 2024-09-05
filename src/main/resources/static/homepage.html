@@ -18,12 +18,14 @@
                     <li><a href="#offers">Offers</a></li>
                     <li><a href="#facilities">Facilities</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="javascript:void(0);" class="btn4" id="feedbackBtn">Feedback</a> </li><!-- Added Feedback button -->
                     
                 </ul>
                 <div class="button">
                     <a href="javascript:void(0);" class="btn" id="signInBtn"></a>
                     <a href="javascript:void(0);" class="btn2" id="registerBtn"></a>
                     <a href="index.html" class="btn2" id="logoutBtn">Log Out</a> <!-- Added Log Out button -->
+                    <!-- <a href="javascript:void(0);" class="btn4" id="feedbackBtn">Feedback</a> Added Feedback button -->
                 </div>
             </nav>
         </div>
@@ -230,6 +232,7 @@
                 </div>
             </div>
         </section>
+        
                     
                 
                     </div>
@@ -270,6 +273,21 @@
             </div>
         </div>
     </div>
+        <!-- Feedback Modal -->
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="feedbackClose">&times;</span>
+        <div class="modal-header">Submit Feedback</div>
+        <div class="modal-body">
+            <form id="feedbackForm">
+                <input type="text" id="feedbackName" name="name" placeholder="Your Name">
+                <input type="email" id="feedbackEmail" name="email" placeholder="Your Email">
+                <textarea id="feedbackMessage" name="message" placeholder="Your Message"></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</div>
 
     <!-- Reservation Modal -->
     <div id="reserveModal" class="modal2">

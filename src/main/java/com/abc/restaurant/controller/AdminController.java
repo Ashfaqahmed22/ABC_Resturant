@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.abc.restaurant.model.Feedback; // Import Feedback model
 import com.abc.restaurant.model.Reservation;
 import com.abc.restaurant.model.User;
+import com.abc.restaurant.repository.FeedbackRepository; // Import FeedbackRepository
 import com.abc.restaurant.repository.ReservationRepository;
 import com.abc.restaurant.repository.UserRepository;
 
@@ -20,6 +22,9 @@ public class AdminController {
 
     @Autowired
     private ReservationRepository reservationRepository;
+
+    @Autowired
+    private FeedbackRepository feedbackRepository; // Add FeedbackRepository
 
     // Endpoint to render the admin page
     @GetMapping("/admin")
@@ -39,5 +44,12 @@ public class AdminController {
     @ResponseBody
     public List<Reservation> getAllReservations() {
         return reservationRepository.findAll(); // Retrieve all reservations from the database
+    }
+
+    // Endpoint to fetch all feedback
+    @GetMapping("/api/feedback")
+    @ResponseBody
+    public List<Feedback> getAllFeedback() {
+        return feedbackRepository.findAll(); // Retrieve all feedback from the database
     }
 }
