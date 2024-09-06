@@ -123,12 +123,12 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
     // Check if it's the admin login
     if (username === "Admin1" && password === "Admin112") {
         // Redirect to admin page
-        window.location.href = "/admin"; // Change this to your admin page URL
+        window.location.href = "/admin"; // 
     } 
     // Check if it's the worker login
     else if (username === "Worker1" && password === "Worker112") {
         // Redirect to worker's interface
-        window.location.href = "/worker"; // Change this to your worker interface URL
+        window.location.href = "/worker"; // 
     } 
     else {
         // Validate user credentials with the database
@@ -148,7 +148,7 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
         .then(data => {
             if (data.success) {
                 // Redirect to homepage
-                window.location.href = "homepage.html"; // Change this to your homepage URL
+                window.location.href = "homepage.html";
             } else {
                 // Display error message
                 alert("Invalid username or password");
