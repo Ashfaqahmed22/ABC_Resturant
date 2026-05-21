@@ -1,23 +1,29 @@
-## ABC Restaurant System
-The ABC Restaurant System is a comprehensive web-based solution designed for the smooth operation of a popular restaurant chain in Sri Lanka.
-It allows users to make online reservations, submit queries, and view the facilities and services provided by the restaurant.
-The system offers different levels of access for customers, restaurant staff, and administrators, ensuring streamlined business flow and efficient management.
+🍽️ ABC Restaurant System
 
-### Features
-1.User-Friendly Interface: Easy navigation for customers to explore services, make reservations, and submit queries.
+The ABC Restaurant System is a comprehensive web-based application designed to streamline restaurant operations for a popular restaurant chain in Sri Lanka.
 
-2.Online Reservation: Customers can book reservations for dine-in, delivery, or room bookings with a few clicks.
+The system enables customers to make online reservations, submit inquiries, and explore available services and facilities. It also provides dedicated interfaces for administrators and staff to ensure efficient management and smooth business operations.
 
-3.Admin Dashboard: Manage user accounts, view and handle reservations, and generate reports through a dedicated admin panel.
+✨ Features
+1. 🧭 User-Friendly Interface - A clean and intuitive interface that allows customers to easily navigate services, make reservations, and submit inquiries.
+2. 📅 Online Reservation System - Customers can conveniently book reservations for dine-in, delivery, or room bookings with just a few clicks.
+3. 🛠️ Admin Dashboard - A powerful admin panel to:
+  Manage user accounts
+  View and manage reservations
+  Handle system-wide operations
+  Generate reports
+4. 👨‍🍳 Staff / Worker Interface - Restaurant staff can efficiently:
+  Manage customer reservations
+  Respond to customer inquiries
+  Coordinate daily operations
 
-4.Worker Interface: Restaurant staff can manage customer reservations and respond to queries efficiently.
-
-5.Responsive Design: The system is accessible across devices, ensuring a seamless experience on desktops, tablets, and mobile phones.
-
-6.Email Notifications: Automated emails to notify users of reservation confirmations and status updates.
-
-7.Secure Access: Differential access rights for Admin, Staff, and Customers, ensuring security and proper system control.
-
-## Follow these steps to set up the Lab Appointment System on your local machine:
-
-1. **Clone the Repository**
+5. 📱 Responsive Design - Fully responsive system optimized for desktops, tablets, and mobile devices for a seamless user experience.
+6. 📧 Email Notifications - Automated email system for:
+  Reservation confirmations
+  Status updates
+  User notifications
+7. 🔐 Secure Access Control - Role-based authentication ensures secure access for:
+  Admins
+  Staff
+  Customers
+Each role has appropriate permissions to maintain system security and integrity.
